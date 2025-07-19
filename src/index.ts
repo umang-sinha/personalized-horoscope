@@ -5,8 +5,12 @@ import { env } from "./config/env";
 import { logger } from "./utils/logger";
 import { sequelize } from "./db";
 import "./models/User";
+import "./models/Horoscope";
+import "./models/index";
 import authRoutes from "./routes/auth";
+import horoscopeRutes from "./routes/horoscope";
 import { apiRateLimiter } from "./middlewares/rateLimit";
+import { requireAuth } from "./middlewares/requireAuth";
 
 const app = express();
 
@@ -15,6 +19,7 @@ app.use(cors());
 app.use(helmet());
 app.use(apiRateLimiter);
 app.use("/auth", authRoutes);
+app.use("/horoscope", requireAuth, horoscopeRutes);
 
 const PORT = env.PORT;
 
