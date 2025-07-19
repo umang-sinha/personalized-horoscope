@@ -3,7 +3,7 @@ import { ZodiacSigns } from "../utils/zodiac";
 import { sequelize } from "../db";
 
 interface UserAttributes {
-  id: number;
+  id: string;
   name: string;
   email: string;
   password: string;
@@ -18,12 +18,15 @@ export class User
   extends Model<UserAttributes, UserCreationAttributes>
   implements UserAttributes
 {
-  public id!: number;
+  public id!: string;
   public name!: string;
   public email!: string;
   public password!: string;
   public birthdate!: Date;
   public zodiacSign!: ZodiacSigns;
+
+  public readonly createdAt!: Date;
+  public readonly updatedAt!: Date;
 }
 
 User.init(
