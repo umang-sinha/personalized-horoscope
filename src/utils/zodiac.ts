@@ -1,4 +1,4 @@
-export function getZodiacSign(date: Date): string {
+export function getZodiacSign(date: Date): ZodiacSigns {
   const d = new Date(date);
   const day = d.getUTCDate();
   const month = d.getUTCMonth() + 1;
