@@ -11,17 +11,19 @@ import authRoutes from "./routes/auth";
 import horoscopeRutes from "./routes/horoscope";
 import { apiRateLimiter } from "./middlewares/rateLimit";
 import { requireAuth } from "./middlewares/requireAuth";
+import { setupSwagger } from "./swagger";
 
 const app = express();
 
 app.use(express.json());
 app.use(cors());
 app.use(helmet());
-app.use(apiRateLimiter);
-app.use("/auth", authRoutes);
-app.use("/horoscope", requireAuth, horoscopeRutes);
+app.use("/auth", apiRateLimiter, authRoutes);
+app.use("/horoscope", apiRateLimiter, requireAuth, horoscopeRutes);
 
 const PORT = env.PORT;
+
+setupSwagger(app);
 
 let server: ReturnType<typeof app.listen>;
 
