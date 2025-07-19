@@ -30,7 +30,7 @@ export function getZodiacSign(date: Date): string {
     }
   }
 
-  return "capricorn"; //fallback, will never reach here in most cases
+  return ZodiacSigns.CAPRICORN; //fallback, will never reach here in most cases
 }
 
 export enum ZodiacSigns {
