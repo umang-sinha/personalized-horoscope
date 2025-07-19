@@ -69,7 +69,7 @@ export async function login(req: Request<{}, {}, LoginInput>, res: Response) {
       return res
         .status(401)
         .json(
-          failure(AuthCode.USER_NOT_FOUND, "Invalid email or password", {})
+          failure(AuthCode.USER_NOT_FOUND, "Invalid email or password")
         );
     }
 
@@ -79,7 +79,7 @@ export async function login(req: Request<{}, {}, LoginInput>, res: Response) {
       return res
         .status(401)
         .json(
-          failure(AuthCode.INVALID_CREDENTIALS, "Invalid email or password", {})
+          failure(AuthCode.INVALID_CREDENTIALS, "Invalid email or password")
         );
     }
 
