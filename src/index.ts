@@ -6,12 +6,14 @@ import { logger } from "./utils/logger";
 import { sequelize } from "./db";
 import "./models/User";
 import authRoutes from "./routes/auth";
+import { apiRateLimiter } from "./middlewares/rateLimit";
 
 const app = express();
 
 app.use(express.json());
 app.use(cors());
 app.use(helmet());
+app.use(apiRateLimiter);
 app.use("/auth", authRoutes);
 
 const PORT = env.PORT;
