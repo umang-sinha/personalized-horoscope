@@ -4,7 +4,7 @@ An Express + TypeScript backend that provides personalized daily horoscopes for 
 
 ---
 
-## Setup Instructions
+## ► Setup Instructions
 
 ### 1. Clone the Repository
 
@@ -58,7 +58,7 @@ http://localhost:3000/api-docs
 
 ---
 
-## Design Decisions
+## ► Design Decisions
 
 ### Express + TypeScript
 
@@ -129,7 +129,7 @@ This prevents:
 
 ---
 
-## Potential Improvements
+## ► Potential Improvements
 
 - **Unit & Integration Tests**: Especially for authentication, input validation, and rate-limiting middleware.
 
